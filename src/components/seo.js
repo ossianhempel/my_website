@@ -11,7 +11,10 @@ const Seo = ({ title }) => {
       }
     }
   `)
+
   return (
     <title>{title} | {data.site.siteMetadata.title}</title>
   )
 }
+
+export default Seo
