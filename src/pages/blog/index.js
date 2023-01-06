@@ -2,6 +2,10 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
+import { 
+  titleHeaders,
+
+} from './index.module.css'
 
 const BlogPage = ({ data }) => {
   return (
@@ -11,7 +15,7 @@ const BlogPage = ({ data }) => {
           data.allMdx.nodes.map(node => (
             <article key={node.id}>
               <h2>
-                <Link to={`/blog/${node.frontmatter.slug}`}>
+                <Link to={`/blog/${node.frontmatter.slug}`} className={titleHeaders}>
                 {node.frontmatter.title}
                 </Link>
               </h2>

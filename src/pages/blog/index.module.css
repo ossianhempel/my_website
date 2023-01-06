@@ -1,0 +1,19 @@
+:root {
+  --background-color-white: rgb(252, 252, 252);
+  --background-color-blue: rgb(241, 244, 244);
+  --font-color-black: rgb(28, 27, 27);
+  --link-color-blue: rgb(28, 103, 165);
+
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+
+.title-headers {
+  color: var(--link-color-blue);
+  text-decoration: none;
+}
+
+.title-headers:visited {
+  /* text-decoration: none;  */
+  /* color: orange;  */
+}
