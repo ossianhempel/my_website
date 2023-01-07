@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../components/seo'
+import Card from '../components/card.js'
 import { 
   mainContent,
   mainContentUpperLeft,
@@ -14,7 +15,7 @@ import {
   mainContentMiddleRight,
   mainContentLowerLeft,
   mainContentLowerRight,
-} from '../components/homepage.module.css'
+} from './index.module.css'
 
 
 // // Step 2: Define your component
@@ -37,13 +38,13 @@ const IndexPage = () => {
             </div>
             <div className={mainContentMiddle}>
               <div className={mainContentMiddleLeft}>
-                Card component placeholder
+                <Card>children test</Card>
               </div>
               <div className={mainContentMiddleMiddle}>
-                Card component placeholder
+                <Card></Card>
               </div>
               <div className={mainContentMiddleRight}>
-                Card component placeholder
+                <Card></Card>
               </div>
             </div>
             <div className={mainContentLowerLeft}>
