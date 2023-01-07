@@ -5,7 +5,7 @@ import Seo from '../../components/seo'
 import { 
   titleHeaders,
 
-} from './index.module.css'
+} from './blog_index.module.css'
 
 const BlogPage = ({ data }) => {
   return (
