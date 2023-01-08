@@ -1,6 +1,6 @@
 // Step 1: Import React
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { StaticImage } from 'gatsby-plugin-image'
 import Seo from '../components/seo'
@@ -15,11 +15,14 @@ import {
   mainContentMiddleRight,
   mainContentLowerLeft,
   mainContentLowerRight,
+  portrait,
 } from './index.module.css'
 
 
 // // Step 2: Define your component
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  // const { date, title, slug } = data.mdx.frontmatter;
+
   return (
     <main>
       <Layout pageTitle={"Hey There!"}>
@@ -32,13 +35,19 @@ const IndexPage = () => {
             </div>
             <div className={mainContentUpperRight}>
               <StaticImage 
+              // imgClassName={portrait}
+              className={portrait}
               alt='Self-portrait' 
               src='../images/me_groupm_color.jpeg'
               />
             </div>
             <div className={mainContentMiddle}>
               <div className={mainContentMiddleLeft}>
-                <Card>children test</Card>
+                <Card>
+                  <p>Title: {data.mdx.frontmatter.title}</p>
+                  children test
+
+                </Card>
               </div>
               <div className={mainContentMiddleMiddle}>
                 <Card></Card>
@@ -58,7 +67,19 @@ const IndexPage = () => {
       </Layout>
     </main>
   )
-}
+};
+
+export const query = graphql`
+  query MyQuery {
+    mdx(frontmatter: {title: {eq: "My First Post"}}) {
+      frontmatter {
+        date
+        title
+        slug
+      }
+    }
+  }
+`
 
 
 
