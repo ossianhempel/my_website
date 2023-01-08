@@ -42,9 +42,27 @@ const IndexPage = ({ data }) => {
               />
             </div>
             <div className={mainContentMiddle}>
-              <div className={mainContentMiddleLeft}>
+              {data.allMdx.nodes.map((node) => {
+                const { id, frontmatter, parent, excerpt, slug } = node;
+                const { title, date} = frontmatter;
+                
+                return (
+                  <Card key={id}>
+                    <Link to={`/${slug}`}>
+                      <article>
+                        <h2>{title}</h2>
+                        <p>{excerpt}</p>
+                      </article>
+                    </Link>
+                  </Card>
+                )
+              })}
+              
+              
+              
+              {/* <div className={mainContentMiddleLeft}>
                 <Card>
-                  <p>Title: {data.mdx.frontmatter.title}</p>
+                  <p>Title: {data.allMdx.nodes[2].title}</p>
                   children test
 
                 </Card>
@@ -54,7 +72,7 @@ const IndexPage = ({ data }) => {
               </div>
               <div className={mainContentMiddleRight}>
                 <Card></Card>
-              </div>
+              </div> */}
             </div>
             <div className={mainContentLowerLeft}>
               Content
@@ -71,11 +89,15 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query MyQuery {
-    mdx(frontmatter: {title: {eq: "My First Post"}}) {
-      frontmatter {
-        date
-        title
-        slug
+    allMdx(filter: {}, sort: {frontmatter: {date: ASC}}, limit: 3) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          title
+          slug
+        }
+        id
+        excerpt
       }
     }
   }
