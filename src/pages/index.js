@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
-import { StaticImage } from 'gatsby-plugin-image'
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Seo from '../components/seo'
 import Card from '../components/card.js'
 import { 
@@ -16,12 +16,16 @@ import {
   mainContentLowerLeft,
   mainContentLowerRight,
   portrait,
+  cardLink,
+  cardArticle,
+  cardHeader,
+  cardExcerpt,
 } from './index.module.css'
+
 
 
 // // Step 2: Define your component
 const IndexPage = ({ data }) => {
-  // const { date, title, slug } = data.mdx.frontmatter;
 
   return (
     <main>
@@ -35,7 +39,6 @@ const IndexPage = ({ data }) => {
             </div>
             <div className={mainContentUpperRight}>
               <StaticImage 
-              // imgClassName={portrait}
               className={portrait}
               alt='Self-portrait' 
               src='../images/me_groupm_color.jpeg'
@@ -44,17 +47,19 @@ const IndexPage = ({ data }) => {
             <div className={mainContentMiddle}>
               {data.allMdx.nodes.map((node) => {
                 const { id, frontmatter, parent, excerpt, slug } = node;
-                const { title, date} = frontmatter;
-                
+                // const { title, date} = frontmatter;
+
                 return (
-                  <Card key={id}>
-                    <Link to={`/${slug}`}>
-                      <article>
-                        <h2>{title}</h2>
-                        <p>{excerpt}</p>
+                  <Link to={`/blog/${node.frontmatter.slug}`} className={cardLink}>
+                  
+                    <Card key={id}>
+                      <article className={cardArticle}>
+                        <h2 className={cardHeader}>{node.frontmatter.title}</h2>
+                        <p className={cardExcerpt}>{excerpt}</p>
                       </article>
-                    </Link>
-                  </Card>
+                    </Card>
+                  </Link>
+                  
                 )
               })}
               

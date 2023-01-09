@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import { 
   card,
+  link,
   
 } from './card.module.css'
 
@@ -19,7 +20,7 @@ const Card = ({ children }) => {
   return (
     <div className={card}>
 
-      <h2>Title Placeholder</h2>
+      {/* <h2>Title Placeholder</h2> */}
       {children}
     </div>
     

@@ -1,3 +1,13 @@
+:root {
+  --background-color-white: rgb(252, 252, 252);
+  --background-color-blue: rgb(241, 244, 244);
+  --font-color-black: rgb(28, 27, 27);
+  --link-color-blue: rgb(28, 103, 165);
+  --font-family: 'Montserrat', 'Roboto', 'sans-serif';
+}
+
+
+
 .main-content {
   grid-row: 2 / 3;
   /* border: 2px solid yellow; */
@@ -51,5 +61,29 @@
 }
 
 .main-content-lower-right {
+
+}
+
+.card-link {
+  color: var(--link-color-blue);
+  text-decoration: none;
+}
+
+.card-article {
+  background-color: var(--background-color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-header {
+  margin: auto;
+  background-color: var(--background-color-white);
+}
+
+.card-excerpt {
+  /* margin: auto; */
+  padding: 10px;
+  background-color: var(--background-color-white);
 
 }
