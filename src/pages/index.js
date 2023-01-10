@@ -47,7 +47,6 @@ const IndexPage = ({ data }) => {
             <div className={mainContentMiddle}>
               {data.allMdx.nodes.map((node) => {
                 const { id, frontmatter, parent, excerpt, slug } = node;
-                // const { title, date} = frontmatter;
 
                 return (
                   <Link to={`/blog/${node.frontmatter.slug}`} className={cardLink}>

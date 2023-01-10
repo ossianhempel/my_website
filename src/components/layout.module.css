@@ -3,7 +3,7 @@
   --background-color-blue: rgb(241, 244, 244);
   --font-color-black: rgb(28, 27, 27);
   --link-color-blue: rgb(28, 103, 165);
-  --font-family: 'Montserrat', 'Roboto', 'sans-serif';
+  --my-font-family: "Montserrat", "Open Sans", "Roboto";
 }
 
 * {
@@ -15,7 +15,8 @@
 .container {
   margin: auto;
   max-width: 700px;
-  font-family: var(--font-family);
+  /* font-family: var(--my-font-familyfont-family); */
+  font-family: "Open Sans", "Roboto";
 }
 
 .heading {
